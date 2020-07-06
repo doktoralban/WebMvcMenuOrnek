@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainNode>
+   <Node title="Başlık 1" link="" roles="Rol_1" icon="fa fa-chevron-down">
+       <Node title="Başlık 1-1" link="/aaa/bbb" roles="Rol_1" icon="fa fa-plus">
+            <Node title="Başlık 1-1-1" link="/aaa/bbb" roles="Rol_1" icon="fa fa-plus"></Node>
+            <Node title="Başlık 1-1-2" link="" roles="Rol_1" icon="fa fa-plus">
+                <Node title="Başlık 1-1-2-1" link="/aaa/bbb" roles="Rol_1" icon="fa fa-plus"></Node>
+                <Node title="Başlık 1-1-2-2" link="/aaa/bbb" roles="Rol_1" icon="fa fa-plus"></Node>
+                <Node title="Başlık 1-1-2-3" link="/aaa/bbb" roles="Rol_1" icon="fa fa-plus"></Node>                
+            </Node>
+       </Node>
+       <Node title="Başlık 1-2" link="/Kategori/Listele" roles="Rol_2" icon="fa fa-sort-alpha-asc"></Node>
+   </Node>
+
+   <Node title="Başlık 2" link="" roles="Rol_1" icon="fa fa-chevron-down">
+       <Node title="Başlık 2-1" link="/Desen/Ekle" roles="Rol_1" icon="fa fa-plus"></Node>
+       <Node title="Başlık 2-2 " link="/Desen/Listele" roles="Rol_1" icon="fa fa-sort-alpha-asc"></Node>
+       <Node title="Başlık 2-3 " link="/Desen/Listele" roles="Rol_2" icon="fa fa-sort-alpha-asc">
+            <Node title="Başlık 2-3-1 " link="/Desen/Listele" roles="Rol_2" icon="fa fa-sort-alpha-asc"></Node>
+            <Node title="Başlık 2-3-2 " link="/Desen/Listele" roles="Rol_1" icon="fa fa-sort-alpha-asc"></Node>
+            <Node title="Başlık 2-3-3 " link="/Desen/Listele" roles="Rol_2" icon="fa fa-sort-alpha-asc"></Node>
+            <Node title="Başlık 2-3-4 " link="/Desen/Listele" roles="Rol_2" icon="fa fa-sort-alpha-asc"></Node>
+       </Node>
+   </Node>
+
+   <Node title="Başlık 3" link="" roles="Rol_3" icon="fa fa-chevron-down">
+     <Node title="Başlık 3-1" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+     <Node title="Başlık 3-2" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+      
+      <Node title="Başlık 3-3" link="/Desen/Ekle" roles="Rol_3" icon="fa fa-plus">
+        <Node title="Başlık 3-3-1" link="/Desen/Ekle" roles="Rol_3" icon="fa fa-plus">
+            <Node title="Başlık 3-3-1+1" link="/Desen/Ekle" roles="Rol_3" icon="fa fa-plus"></Node>
+            <Node title="Başlık 3-3-1+2" link="/Desen/Ekle" roles="Rol_3" icon="fa fa-plus"></Node>        
+        </Node>
+        <Node title="Başlık 3-3-2" link="/Desen/Ekle" roles="Rol_3" icon="fa fa-plus"></Node>
+     </Node>
+
+     <Node title="Başlık 3-4" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus">
+        <Node title="Başlık 3-4-1" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+        <Node title="Başlık 3-4-2" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+        <Node title="Başlık 3-4-3" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+     </Node>
+     <Node title="Başlık 3-5" link="/Desen/Ekle" roles="Rol_6" icon="fa fa-plus"></Node>
+  </Node>
+
+    
+    
+
+
+  <Node title="Başlık 4" link="#" roles="Rol_4" icon="fa fa-chevron-down"></Node>
+
+</MainNode>

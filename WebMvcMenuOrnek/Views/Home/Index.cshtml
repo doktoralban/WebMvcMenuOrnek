@@ -1,0 +1,189 @@
+﻿
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+<link href="~/Content/multiDropS/multiDropS.css" rel="stylesheet" />
+<link href="~/Content/multiDropS/multiDropS.css" rel="stylesheet" />
+
+
+<hr />
+
+<div id="menu_area" class="menu-area">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default navbar-expand-lg mainmenu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                        @{
+                            List<string> eklenenler = new List<string>();
+
+                            var yetkiliMenuler = (List<MenuXml.MenuItemObject>)Session["YetkiliMenuler"];
+                            System.Web.UI.WebControls.Menu mn = new System.Web.UI.WebControls.Menu();
+
+                            foreach (MenuXml.MenuItemObject menuItem in yetkiliMenuler)
+                            {
+                                if (menuItem.ChildMenuItems.Count == 0)
+                                {
+                                    if (!eklenenler.Contains(menuItem.Name))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" href=@menuItem.Link>@menuItem.Name</a>
+                                        </li>
+
+                                        //...............................
+                                        eklenenler.Add(menuItem.Name);
+                                        //...............................
+                                    }
+
+                                }
+                                else if (menuItem.ChildMenuItems.Count > 0)
+                                {
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false"> @menuItem.Name</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @{
+                                                //var cm2 = MenuXml.GetNodesSadeceEnUstNodes(menuItem).Where(p => p.Name != menuItem.Name);
+                                              foreach (var item2 in menuItem.ChildMenuItems)
+                                                {
+                                                    if (item2.ChildMenuItems.Count == 0)
+                                                    {
+                                                        if (!eklenenler.Contains(item2.Name))
+                                                        {
+                                                            <li><a href="#">@item2.Name</a></li>
+                                                            //...............................
+                                                            eklenenler.Add(@item2.Name);
+                                                            //...............................
+                                                        }
+
+                                                    }
+                                                    else if (item2.ChildMenuItems.Count > 0)
+                                                    {
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                                               aria-haspopup="true" aria-expanded="false"> @item2.Name</a>
+                                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                @{
+                                                                    foreach (var item3 in item2.ChildMenuItems)
+                                                                    {
+                                                                        @*if (!eklenenler.Contains(item3.Name))
+                                                                        {
+                                                                            <li><a href="#">@item3.Name</a></li>
+                                                                            //...............................
+                                                                            eklenenler.Add(item3.Name);
+                                                                            //...............................
+                                                                        }*@
+
+                                                                        <li class="dropdown">
+                                                                            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                                                               aria-haspopup="true" aria-expanded="false"> @item3.Name</a>
+                                                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                                                @{
+                                                                                    foreach (var item33 in item3.ChildMenuItems)
+                                                                                    {
+                                                                                        if (!eklenenler.Contains(item33.Name))
+                                                                                        {
+                                                                                            <li><a href="#">@item33.Name</a></li>
+                                                                                            //...............................
+                                                                                            eklenenler.Add(item33.Name);
+                                                                                            //...............................
+                                                                                        }
+                                                                                    }
+                                                                                }
+
+                                                                            </ul>
+                                                                            </li>
+
+
+
+
+
+
+                                                                                }
+                                                                                }
+                                                                                }
+
+                                                                            </ul>
+
+                                                                        </li>
+
+
+
+                                                                    }// else if (item2.ChildMenuItems.Count > 0)
+                                                                }// foreach (var item2 in cm2)
+                                                                }
+                                                            </ul>
+                                    </li>
+                                }
+                            }
+                        }
+
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<hr />
+
+@*<div id="menu_area" class="menu-area">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-light navbar-expand-lg mainmenu">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">DropdownXYZ</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown3</a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><a href="#">Action</a></li>
+                                                    <li><a href="#">Another action</a></li>
+                                                    <li><a href="#">Something else here</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>*@
